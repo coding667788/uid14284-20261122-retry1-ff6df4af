@@ -1,0 +1,36 @@
+{
+  "account_id": "acct-drill-02",
+  "drill_time": 500,
+  "custody_domains": [
+    "vault-dallas",
+    "vault-oslo",
+    "vault-singapore",
+    "vault-zurich"
+  ],
+  "candidates": [
+    {"proof_id": "future-01", "organization": "org-alpha", "custody_domain": "vault-dallas", "proof_type": "hardware-key-attestation", "cost": 120, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-02", "organization": "org-bravo", "custody_domain": "vault-oslo", "proof_type": "hardware-key-attestation", "cost": 180, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-03", "organization": "org-charlie", "custody_domain": "vault-singapore", "proof_type": "hardware-key-attestation", "cost": 150, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-04", "organization": "org-delta", "custody_domain": "vault-zurich", "proof_type": "hardware-key-attestation", "cost": 200, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-05", "organization": "org-charlie", "custody_domain": "vault-singapore", "proof_type": "notary-seal", "cost": 260, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-06", "organization": "org-delta", "custody_domain": "vault-zurich", "proof_type": "notary-seal", "cost": 240, "valid_from": 0, "valid_until": 100000},
+    {"proof_id": "future-07", "organization": "org-echo", "custody_domain": "vault-dallas", "proof_type": "notary-seal", "cost": 300, "valid_from": 900, "valid_until": 100000}
+  ],
+  "recipes": [
+    {
+      "recipe_id": "recipe-dual-control",
+      "version": 3,
+      "requirements": [
+        {"proof_type": "hardware-key-attestation", "count": 2, "distinct_organizations": true, "distinct_custody_domains": true},
+        {"proof_type": "notary-seal", "count": 1}
+      ]
+    },
+    {
+      "recipe_id": "recipe-triple-key",
+      "version": 1,
+      "requirements": [
+        {"proof_type": "hardware-key-attestation", "count": 3, "distinct_organizations": true, "distinct_custody_domains": true}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "account_id": "acct-drill-noplan",
+  "drill_time": 0,
+  "custody_domains": ["vault-dallas", "vault-oslo"],
+  "candidates": [
+    {"proof_id": "only-01", "organization": "org-alpha", "custody_domain": "vault-dallas", "proof_type": "hardware-key-attestation", "cost": 120},
+    {"proof_id": "only-02", "organization": "org-alpha", "custody_domain": "vault-oslo", "proof_type": "hardware-key-attestation", "cost": 180}
+  ],
+  "recipes": [
+    {
+      "recipe_id": "recipe-dual-control",
+      "version": 3,
+      "requirements": [
+        {"proof_type": "hardware-key-attestation", "count": 2, "distinct_organizations": true, "distinct_custody_domains": true}
+      ]
+    }
+  ]
+}

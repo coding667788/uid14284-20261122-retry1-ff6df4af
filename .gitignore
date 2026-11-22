@@ -3,3 +3,7 @@ __pycache__/
 .runtime-tmp/
 .env
 .env.*
+.demo-tmp/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm

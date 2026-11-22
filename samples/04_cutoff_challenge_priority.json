@@ -1,0 +1,36 @@
+{
+  "events": [
+    {
+      "cmd": "reserve",
+      "at": 1000,
+      "seq": 1,
+      "request_id": "req-recovery-cutoff",
+      "payload": {
+        "account_id": "acct-demo-01",
+        "generation": 1,
+        "new_authenticator_digest": "authn:replacement-device:4b8d",
+        "freeze_until": 2000
+      }
+    },
+    {
+      "cmd": "revoke_proof",
+      "at": 2000,
+      "seq": 1,
+      "request_id": "req-revoke-at-cutoff",
+      "payload": {
+        "proof_id": "proof-charlie-seal",
+        "revoked_at": 2000
+      }
+    },
+    {
+      "cmd": "challenge",
+      "at": 2000,
+      "seq": 2,
+      "request_id": "req-old-authn-cutoff",
+      "payload": {
+        "challenger": "old_authenticator",
+        "app_request_id": "req-recovery-cutoff"
+      }
+    }
+  ]
+}

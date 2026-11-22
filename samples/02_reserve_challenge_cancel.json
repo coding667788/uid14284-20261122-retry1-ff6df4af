@@ -1,0 +1,35 @@
+{
+  "events": [
+    {
+      "cmd": "reserve",
+      "at": 1000,
+      "seq": 1,
+      "request_id": "req-recovery-primary",
+      "payload": {
+        "account_id": "acct-demo-01",
+        "generation": 1,
+        "new_authenticator_digest": "authn:replacement-device:9c2e",
+        "freeze_until": 2000
+      }
+    },
+    {
+      "cmd": "cancel",
+      "at": 1700,
+      "seq": 1,
+      "request_id": "req-cancel-primary",
+      "payload": {
+        "app_request_id": "req-recovery-primary",
+        "reason": "申请人在冻结窗口内主动撤回；本次预留证明永久锁定给该申请"
+      }
+    },
+    {
+      "cmd": "get_receipt",
+      "at": 3000,
+      "seq": 1,
+      "request_id": null,
+      "payload": {
+        "request_id": "req-cancel-primary"
+      }
+    }
+  ]
+}

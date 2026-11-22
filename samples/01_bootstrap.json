@@ -1,0 +1,127 @@
+{
+  "events": [
+    {
+      "cmd": "register_account",
+      "at": 0,
+      "seq": 1,
+      "request_id": "req-account-0001",
+      "payload": {
+        "account_id": "acct-demo-01",
+        "initial_authenticator": "authn:ledger-device:7f3a",
+        "security_contact": "contact:secops+acct-demo-01@example.test"
+      }
+    },
+    {
+      "cmd": "register_trustee",
+      "at": 0,
+      "seq": 2,
+      "request_id": "req-trustee-alpha",
+      "payload": {
+        "trustee_id": "trustee-alpha",
+        "organization": "org-alpha",
+        "custody_domain": "vault-dallas",
+        "valid_from": 0,
+        "valid_until": 100000
+      }
+    },
+    {
+      "cmd": "register_trustee",
+      "at": 0,
+      "seq": 3,
+      "request_id": "req-trustee-bravo",
+      "payload": {
+        "trustee_id": "trustee-bravo",
+        "organization": "org-bravo",
+        "custody_domain": "vault-oslo",
+        "valid_from": 0,
+        "valid_until": 100000
+      }
+    },
+    {
+      "cmd": "register_trustee",
+      "at": 0,
+      "seq": 4,
+      "request_id": "req-trustee-charlie",
+      "payload": {
+        "trustee_id": "trustee-charlie",
+        "organization": "org-charlie",
+        "custody_domain": "vault-singapore",
+        "valid_from": 0,
+        "valid_until": 100000
+      }
+    },
+    {
+      "cmd": "issue_proof",
+      "at": 100,
+      "seq": 1,
+      "request_id": "req-proof-a1",
+      "payload": {
+        "proof_id": "proof-alpha-key",
+        "account_id": "acct-demo-01",
+        "trustee_id": "trustee-alpha",
+        "proof_type": "hardware-key-attestation",
+        "digest": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+        "issued_at": 100,
+        "valid_until": 90000,
+        "cost": 120
+      }
+    },
+    {
+      "cmd": "issue_proof",
+      "at": 100,
+      "seq": 2,
+      "request_id": "req-proof-b1",
+      "payload": {
+        "proof_id": "proof-bravo-key",
+        "account_id": "acct-demo-01",
+        "trustee_id": "trustee-bravo",
+        "proof_type": "hardware-key-attestation",
+        "digest": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+        "issued_at": 100,
+        "valid_until": 90000,
+        "cost": 180
+      }
+    },
+    {
+      "cmd": "issue_proof",
+      "at": 100,
+      "seq": 3,
+      "request_id": "req-proof-c1",
+      "payload": {
+        "proof_id": "proof-charlie-seal",
+        "account_id": "acct-demo-01",
+        "trustee_id": "trustee-charlie",
+        "proof_type": "notary-seal",
+        "digest": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+        "issued_at": 100,
+        "valid_until": 90000,
+        "cost": 260
+      }
+    },
+    {
+      "cmd": "register_recipe",
+      "at": 200,
+      "seq": 1,
+      "request_id": "req-recipe-dual-v3",
+      "payload": {
+        "recipe_id": "recipe-dual-control",
+        "version": 3,
+        "active_from": 200,
+        "requirements": [
+          {
+            "proof_type": "hardware-key-attestation",
+            "count": 2,
+            "distinct_organizations": true,
+            "distinct_custody_domains": true
+          },
+          {
+            "proof_type": "notary-seal",
+            "count": 1,
+            "distinct_organizations": false,
+            "distinct_custody_domains": false
+          }
+        ]
+      }
+    }
+  ]
+}
